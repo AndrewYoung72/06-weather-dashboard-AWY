@@ -36,7 +36,52 @@ function getApi(){
         uviEl.textContent = "UV: " + weatherData.current.uvi;
 
         var dateEl = document.getElementById("date");
+        var iconEl = document.getElementById("icon");
+        var tempCardEl = document.getElementById("tempCard");
+        
         dateEl.textContent = weatherData.daily[0].dt;
+        iconEl.textContent = weatherData.daily[0].weather[0].description;
+        tempCardEl.textContent = weatherData.daily[0].temp.day;
+       
+
+        var nDateEl = document.getElementById("nDate");
+        var nIconEl = document.getElementById("nIcon");
+        var nTempCardEl = document.getElementById("nTempCard");
+       
+        nDateEl.textContent = weatherData.daily[1].dt;
+        nIconEl.textContent = weatherData.daily[1].weather[0].description;
+        nTempCardEl.textContent = weatherData.daily[1].temp.day;
+       
+
+        var sDateEl = document.getElementById("sDate");
+        var sIconEl = document.getElementById("sIcon");
+        var sTempCardEl = document.getElementById("sTempCard");
+        
+        sDateEl.textContent = weatherData.daily[2].dt;
+        sIconEl.textContent = weatherData.daily[2].weather[0].description;
+        sTempCardEl.textContent = weatherData.daily[2].temp.day;
+       
+
+        var tDateEl = document.getElementById("tDate");
+        var tIconEl = document.getElementById("tIcon");
+        var tTempCardEl = document.getElementById("tTempCard");
+        
+        tDateEl.textContent = weatherData.daily[3].dt;
+        tIconEl.textContent = weatherData.daily[3].weather[0].description;
+        tTempCardEl.textContent = weatherData.daily[3].temp.day;
+       
+
+        var fDateEl = document.getElementById("fDate");
+        var fIconEl = document.getElementById("fIcon");
+        var fTempCardEl = document.getElementById("fTempCard");
+        
+        fDateEl.textContent = weatherData.daily[4].dt;
+        fIconEl.textContent = weatherData.daily[4].weather[0].description;
+        fTempCardEl.textContent = weatherData.daily[4].temp.day;
+       
+
+
+
       })
       // for (var i = 0; i < data.length; i++) {
       //   var citySearch = document.getElementById("searchList");
