@@ -35,6 +35,14 @@ function getApi(){
         humidEl.textContent = "Humidity: " + weatherData.current.humidity;
         uviEl.textContent = "UV: " + weatherData.current.uvi;
 
+        if (uvI <= 2.00) {
+          uviEl.setAttribute("style", "background-color: green; ");
+        } else if (uvI < 2.00 > 5.00) {
+          uviEl.setAttribute("style", "background-color: yellow");
+        } else {
+          uviEl.setAttribute("style", "background-color: red");
+        }
+
         var dateEl = document.getElementById("date");
         var iconEl = document.getElementById("icon");
         var tempCardEl = document.getElementById("tempCard");
