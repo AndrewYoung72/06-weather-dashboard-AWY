@@ -35,6 +35,8 @@ function getApi(){
         humidEl.textContent = "Humidity: " + weatherData.current.humidity;
         uviEl.textContent = "UV: " + weatherData.current.uvi;
 
+        var dateEl = document.getElementById("date");
+        dateEl.textContent = weatherData.daily[0].dt;
       })
       // for (var i = 0; i < data.length; i++) {
       //   var citySearch = document.getElementById("searchList");
