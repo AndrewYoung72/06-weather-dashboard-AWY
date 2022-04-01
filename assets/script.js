@@ -5,7 +5,7 @@ var searchBtn = document.getElementById("searchBtn");
 
 function getApi(){
   var cityInput = document.getElementById("cSearch").value;
-  var geoCodeUrl = "http://api.openweathermap.org/geo/1.0/direct?q="+cityInput+"&limit=1&appid=483a5f8a85f972bf48f65c53caa33848";
+  var geoCodeUrl = "https://api.openweathermap.org/geo/1.0/direct?q="+cityInput+"&limit=1&appid=483a5f8a85f972bf48f65c53caa33848";
 
   fetch(geoCodeUrl)
     .then(function (response) {
@@ -35,9 +35,9 @@ function getApi(){
         humidEl.textContent = "Humidity: " + weatherData.current.humidity;
         uviEl.textContent = "UV: " + weatherData.current.uvi;
 
-        if (uvI <= 2.00) {
+        if (uvI <= 2) {
           uviEl.setAttribute("style", "background-color: green; ");
-        } else if (uvI < 2.00 > 5.00) {
+        } else if (uvI > 2 < 5) {
           uviEl.setAttribute("style", "background-color: yellow");
         } else {
           uviEl.setAttribute("style", "background-color: red");
@@ -49,7 +49,7 @@ function getApi(){
         
         dateEl.textContent = weatherData.daily[0].dt;
         iconEl.textContent = weatherData.daily[0].weather[0].description;
-        tempCardEl.textContent = weatherData.daily[0].temp.day;
+        tempCardEl.textContent = "Temp: " + weatherData.daily[0].temp.day;
        
 
         var nDateEl = document.getElementById("nDate");
@@ -57,8 +57,8 @@ function getApi(){
         var nTempCardEl = document.getElementById("nTempCard");
        
         nDateEl.textContent = weatherData.daily[1].dt;
-        nIconEl.textContent = weatherData.daily[1].weather[0].description;
-        nTempCardEl.textContent = weatherData.daily[1].temp.day;
+        nIconEl.textContent =  weatherData.daily[1].weather[0].description;
+        nTempCardEl.textContent = "Temp: " + weatherData.daily[1].temp.day;
        
 
         var sDateEl = document.getElementById("sDate");
@@ -67,7 +67,7 @@ function getApi(){
         
         sDateEl.textContent = weatherData.daily[2].dt;
         sIconEl.textContent = weatherData.daily[2].weather[0].description;
-        sTempCardEl.textContent = weatherData.daily[2].temp.day;
+        sTempCardEl.textContent = "Temp: " + weatherData.daily[2].temp.day;
        
 
         var tDateEl = document.getElementById("tDate");
@@ -76,7 +76,7 @@ function getApi(){
         
         tDateEl.textContent = weatherData.daily[3].dt;
         tIconEl.textContent = weatherData.daily[3].weather[0].description;
-        tTempCardEl.textContent = weatherData.daily[3].temp.day;
+        tTempCardEl.textContent = "Temp: " + weatherData.daily[3].temp.day;
        
 
         var fDateEl = document.getElementById("fDate");
@@ -85,7 +85,7 @@ function getApi(){
         
         fDateEl.textContent = weatherData.daily[4].dt;
         fIconEl.textContent = weatherData.daily[4].weather[0].description;
-        fTempCardEl.textContent = weatherData.daily[4].temp.day;
+        fTempCardEl.textContent = "Temp: " + weatherData.daily[4].temp.day;
        
 
 
