@@ -8,6 +8,13 @@
 .container {
   display: inline-flex;
 }
+
+.wContainer  {
+  display:list-item;
+  background-color: rgb(250, 246, 246);
+  border: black 2em;
+  width:10%;
+}
 .container #foreCast {
   display: inline-flex;
   /* width: 100px;

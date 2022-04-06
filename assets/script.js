@@ -47,10 +47,10 @@ function getApi(){
 
         if (uvI <= 2) {
           uviEl.setAttribute("style", "background-color: green; ");
-        } else if (uvI > 2 < 5) {
+        } else if (uvI > 2) {
           uviEl.setAttribute("style", "background-color: yellow");
         } else {
-          uviEl.setAttribute("style", "background-color: red");
+          uviEl.setAttribute("style", "background-color: orange");
         }
 
         var dateEl = document.getElementById("date");
@@ -66,10 +66,12 @@ function getApi(){
 
         var nDateEl = document.getElementById("nDate");
         var nIconEl = document.getElementById("nIcon");
+        var nDescriptionEl = document.getElementById("nDescription")
         var nTempCardEl = document.getElementById("nTempCard");
        
         nDateEl.textContent = weatherData.daily[1].dt;
         nIconEl.src =  weatherData.daily[1].weather[0].icon;
+        nDescriptionEl.textContent = weatherData.daily[1].weather[0].description;
         nTempCardEl.textContent = "Temp: " + weatherData.daily[1].temp.day;
        
 
