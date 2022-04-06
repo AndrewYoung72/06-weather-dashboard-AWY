@@ -5,6 +5,11 @@
   position: sticky;
 }
 
-#forecast {
-  display: flex;
+.container {
+  display: inline-flex;
+}
+.container #foreCast {
+  display: inline-flex;
+  /* width: 100px;
+  height: 100px; */
 }
