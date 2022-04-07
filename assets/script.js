@@ -2,7 +2,17 @@
 var searchBtn = document.getElementById("searchBtn");
 var cityList = document.getElementById("searchList");
 var cityInput = document.getElementById("cSearch").value;
-var searchList = [];
+var searchList = localStorage.getItem("searchList");
+
+cityList.textContent = searchList;
+
+searchBtn.addEventListener("click", function() {
+  if (cityInput !== null) {
+    searchList+=
+    cityInput.textContent = searchList;
+    localStorage.setItem("click", searchList);
+  }
+});
 
 
 function getApi(){
@@ -124,17 +134,50 @@ function getApi(){
   // var currentWeather = document.createElement("div");
 }
 
-searchBtn.addEventListener("click", function(event) {
-  event.preventDefault();
-  var cityInput = document.getElementById("cSearch").value;
+// searchBtn.addEventListener("click", function(event) {
+//   event.preventDefault();
+//   var cityInput = document.getElementById("cSearch").value;
 
 
 
-});
+// });
+var cityList = document.getElementById("searchList");
 
+// Render a new li for each search
+function renderList() {
+  cityList.innerHTML = "";
+  cityInput.textContent = searchList.length;
+
+  for (var i = 0; i < searchList.length; i++) {
+    var list = searchList[i];
     var cityList = document.getElementById("searchList");
-    var listName = document.createElement("span");
-    listName.textContent = cityInput;
+    var li = document.createElement("li");
+    li.textContent = list;
+    li.setAttribute("data-index", i)
+    cityList.appendChild(li);
+
+    searchBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    var cityInput = document.getElementById("cSearch").value;
   
+  
+  
+    });
+     // var cityList = document.getElementById("searchList");
+     // var listName = document.createElement("li");
+     // listName.textContent = cityInput;
+    
+   }
+
+  
+
+
+
+// searchBtn.addEventListener("click", function(event) {
+//   event.preventDefault();
+//   var cityInput = document.getElementById("cSearch").value;
+// }, false);
+
+}
 
 searchBtn.addEventListener("click", getApi);
