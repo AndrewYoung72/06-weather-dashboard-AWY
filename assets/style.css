@@ -5,6 +5,10 @@
   position: sticky;
 }
 
+#label {
+  font-size: 25px;
+}
+
 .container {
   display: inline-flex;
 }

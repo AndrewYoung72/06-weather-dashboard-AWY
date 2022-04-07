@@ -43,7 +43,7 @@ function getApi(){
         tempEl.textContent = "Temp: " + weatherData.current.temp;
         windEl.textContent = "Wind: " + weatherData.current.wind_speed;
         humidEl.textContent = "Humidity: " + weatherData.current.humidity;
-        uviEl.textContent = "UV: " + weatherData.current.uvi;
+        uviEl.textContent = "UV Index: " + weatherData.current.uvi;
 
         if (uvI <= 2) {
           uviEl.setAttribute("style", "background-color: green; ");
@@ -55,7 +55,7 @@ function getApi(){
 
         var dateEl = document.getElementById("date");
         var iconEl = document.getElementById("icon");
-        var descriptionEl = document.getElementById("description")
+        var descriptionEl = document.getElementById("description");
         var tempCardEl = document.getElementById("tempCard");
         
         dateEl.textContent = weatherData.daily[0].dt;
@@ -66,7 +66,7 @@ function getApi(){
 
         var nDateEl = document.getElementById("nDate");
         var nIconEl = document.getElementById("nIcon");
-        var nDescriptionEl = document.getElementById("nDescription")
+        var nDescriptionEl = document.getElementById("nDescription");
         var nTempCardEl = document.getElementById("nTempCard");
        
         nDateEl.textContent = weatherData.daily[1].dt;
@@ -77,28 +77,34 @@ function getApi(){
 
         var sDateEl = document.getElementById("sDate");
         var sIconEl = document.getElementById("sIcon");
+        var sDescriptionEl = document.getElementById("sDescription");
         var sTempCardEl = document.getElementById("sTempCard");
         
         sDateEl.textContent = weatherData.daily[2].dt;
         sIconEl.src = weatherData.daily[2].weather[0].icon;
+        sDescriptionEl.textContent = weatherData.daily[2].weather[0].description;
         sTempCardEl.textContent = "Temp: " + weatherData.daily[2].temp.day;
        
 
         var tDateEl = document.getElementById("tDate");
         var tIconEl = document.getElementById("tIcon");
+        var tDescriptionEl = document.getElementById("tDescription");
         var tTempCardEl = document.getElementById("tTempCard");
         
         tDateEl.textContent = weatherData.daily[3].dt;
         tIconEl.src = weatherData.daily[3].weather[0].icon;
+        tDescriptionEl.textContent = weatherData.daily[3].weather[0].description;
         tTempCardEl.textContent = "Temp: " + weatherData.daily[3].temp.day;
        
 
         var fDateEl = document.getElementById("fDate");
         var fIconEl = document.getElementById("fIcon");
+        var fDescriptionEl = document.getElementById("fDescription");
         var fTempCardEl = document.getElementById("fTempCard");
         
         fDateEl.textContent = weatherData.daily[4].dt;
         fIconEl.src = weatherData.daily[4].weather[0].icon;
+        fDescriptionEl.textContent = weatherData.daily[4].weather[0].description;
         fTempCardEl.textContent = "Temp: " + weatherData.daily[4].temp.day;
        
       })
@@ -127,7 +133,7 @@ searchBtn.addEventListener("click", function(event) {
 });
 
     var cityList = document.getElementById("searchList");
-    var listName = document.createElement("li");
+    var listName = document.createElement("span");
     listName.textContent = cityInput;
   
 
