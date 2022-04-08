@@ -2,17 +2,39 @@
 var searchBtn = document.getElementById("searchBtn");
 var cityList = document.getElementById("searchList");
 var cityInput = document.getElementById("cSearch").value;
-var searchList = localStorage.getItem("searchList");
+var searchList = JSON.parse(localStorage.getItem("searchList")) || [];
+
 
 cityList.textContent = searchList;
 
-searchBtn.addEventListener("click", function() {
-  if (cityInput !== null) {
-    searchList+=
-    cityInput.textContent = searchList;
-    localStorage.setItem("click", searchList);
-  }
-});
+
+var cityList = document.getElementById("searchList");
+
+// Render a new li for each search
+localStorage.clear();
+function renderList() {
+  cityList.innerHTML = "";
+  cityInput.textContent = searchList.length;
+
+  for (var i = 0; i < searchList.length; i++) {
+    var list = searchList[i];
+    var cityList = document.getElementById("searchList");
+    var li = document.createElement("li");
+    li.textContent = list;
+    li.setAttribute("data-index", i)
+    cityList.appendChild(li);
+
+    searchBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    // var cityInput = document.getElementById("cSearch").value;
+    var cityInput = document.getElementById(cityInput);
+  
+    });
+    
+   }
+
+}
+
 
 
 function getApi(){
@@ -43,10 +65,11 @@ function getApi(){
         var uviEl = document.getElementById("uvI");
         var listEl = document.getElementById("searchList");
 
-        searchBtn.addEventListener("click", function(event) {
-          event.preventDefault();
-          localStorage.setItem("searchList", JSON.stringify(data[0].name))
-        }, false);
+        // searchBtn.addEventListener("click", function(event) {
+        //   event.preventDefault();
+        searchList.push(data[0].name)
+        localStorage.setItem("searchList", JSON.stringify(searchList))
+        // }, false);
 
         cityNameEl.textContent = data[0].name;
         listEl.textContent = data[0].name;
@@ -68,8 +91,10 @@ function getApi(){
         var descriptionEl = document.getElementById("description");
         var tempCardEl = document.getElementById("tempCard");
         
-        dateEl.textContent = weatherData.daily[0].dt;
-        iconEl.src = weatherData.daily[0].weather[0].icon;
+        // dateEl.textContent = weatherData.daily[0].dt;
+        dateEl.textContent = moment(weatherData.daily[0].dt * 1000).format("MMM D YYYY");
+        // iconEl.src = weatherData.daily[0].weather[0].icon;
+        iconEl.src = "https://openweathermap.org/img/wn/"+weatherData.daily[0].weather[0].icon+"@2x.png"
         descriptionEl.textContent = weatherData.daily[0].weather[0].description;
         tempCardEl.textContent = "Temp: " + weatherData.daily[0].temp.day;
        
@@ -79,8 +104,8 @@ function getApi(){
         var nDescriptionEl = document.getElementById("nDescription");
         var nTempCardEl = document.getElementById("nTempCard");
        
-        nDateEl.textContent = weatherData.daily[1].dt;
-        nIconEl.src =  weatherData.daily[1].weather[0].icon;
+        nDateEl.textContent = moment(weatherData.daily[1].dt * 1000).format("MMM D YYYY");
+        nIconEl.src = "https://openweathermap.org/img/wn/"+weatherData.daily[1].weather[0].icon+"@2x.png";
         nDescriptionEl.textContent = weatherData.daily[1].weather[0].description;
         nTempCardEl.textContent = "Temp: " + weatherData.daily[1].temp.day;
        
@@ -90,8 +115,8 @@ function getApi(){
         var sDescriptionEl = document.getElementById("sDescription");
         var sTempCardEl = document.getElementById("sTempCard");
         
-        sDateEl.textContent = weatherData.daily[2].dt;
-        sIconEl.src = weatherData.daily[2].weather[0].icon;
+        sDateEl.textContent = moment(weatherData.daily[2].dt * 1000).format("MMM D YYYY");
+        sIconEl.src = "https://openweathermap.org/img/wn/"+weatherData.daily[2].weather[0].icon+"@2x.png";
         sDescriptionEl.textContent = weatherData.daily[2].weather[0].description;
         sTempCardEl.textContent = "Temp: " + weatherData.daily[2].temp.day;
        
@@ -101,8 +126,8 @@ function getApi(){
         var tDescriptionEl = document.getElementById("tDescription");
         var tTempCardEl = document.getElementById("tTempCard");
         
-        tDateEl.textContent = weatherData.daily[3].dt;
-        tIconEl.src = weatherData.daily[3].weather[0].icon;
+        tDateEl.textContent = moment(weatherData.daily[3].dt * 1000).format("MMM D YYYY");
+        tIconEl.src = "https://openweathermap.org/img/wn/"+weatherData.daily[3].weather[0].icon+"@2x.png";
         tDescriptionEl.textContent = weatherData.daily[3].weather[0].description;
         tTempCardEl.textContent = "Temp: " + weatherData.daily[3].temp.day;
        
@@ -112,35 +137,20 @@ function getApi(){
         var fDescriptionEl = document.getElementById("fDescription");
         var fTempCardEl = document.getElementById("fTempCard");
         
-        fDateEl.textContent = weatherData.daily[4].dt;
-        fIconEl.src = weatherData.daily[4].weather[0].icon;
+        fDateEl.textContent = moment(weatherData.daily[4].dt * 1000).format("MMM D YYYY");
+        fIconEl.src = "https://openweathermap.org/img/wn/"+weatherData.daily[4].weather[0].icon+"@2x.png";
         fDescriptionEl.textContent = weatherData.daily[4].weather[0].description;
         fTempCardEl.textContent = "Temp: " + weatherData.daily[4].temp.day;
        
       })
 
 
-      
-      // for (var i = 0; i < data.length; i++) {
-      //   var citySearch = document.getElementById("searchList");
-      //   var cityArray = [];
-      //   var currentWeather = document.createElement("div");
-      //   var searchEl = document.createElement("li");
-      //   searchEl.textContent = data[i];
-      //   citySearch.append(searchEl);
-      // }
+     
     });
-  // var citySearch = document.getElementById("weather");
-  // var currentWeather = document.createElement("div");
+ 
 }
 
-// searchBtn.addEventListener("click", function(event) {
-//   event.preventDefault();
-//   var cityInput = document.getElementById("cSearch").value;
 
-
-
-// });
 var cityList = document.getElementById("searchList");
 
 // Render a new li for each search
@@ -163,20 +173,8 @@ function renderList() {
   
   
     });
-     // var cityList = document.getElementById("searchList");
-     // var listName = document.createElement("li");
-     // listName.textContent = cityInput;
     
    }
-
-  
-
-
-
-// searchBtn.addEventListener("click", function(event) {
-//   event.preventDefault();
-//   var cityInput = document.getElementById("cSearch").value;
-// }, false);
 
 }
 
