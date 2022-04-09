@@ -10,8 +10,7 @@ file:///Users/andrewyoung/Desktop/Homework/06-weather-dashboard-AWY/index.html
 
 My site is not yet fully functional. I have not been able to get the searched cities to present on the page when searched. When the page is refreshed the searched cities load to the page from local storage and I added a clear function to clear the list when the page is reloaded. However, my site does retrieve the current weather and five day forecast for the chosen city. I was able to get the date, weather icon, description, and temperature forecast to display on the forecast cards. And the UV index is set to display a color warning based on exposure guidlines.
 
-
-
+https://user-images.githubusercontent.com/97897877/162586448-8b60d8f4-b21c-4def-a1bb-c1d6a50df983.mp4
 ## Lessons
 
 This is the first assignment that I did not turn in on time. I have not been able to turn in a completed asignment do to my weakness in JavaScript so I was determined to turn in a functioning assignment this time. I am not able to do that but my understanding of JavaScript has grown significantly during this project. This was the first project where I was able to send my inputs to local storage and retrieve them. Also, I had to use two APIs. The first was used to find the lattitude and longitude to use in the second fetch to retrieve the current forecast and five day forecast. 
