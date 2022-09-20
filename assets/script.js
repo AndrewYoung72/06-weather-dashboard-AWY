@@ -19,10 +19,10 @@ function renderList() {
   for (var i = 0; i < searchList.length; i++) {
     var list = searchList[i];
     var cityList = document.getElementById("searchList");
-    var button = document.createElement("button");
-    button.textContent = list;
-    button.setAttribute("data-index", i);
-    cityList.appendChild(button);
+    var li = document.createElement("li");
+    li.textContent = list;
+    li.setAttribute("data-index", i);
+    cityList.appendChild(li);
     
 
     searchBtn.addEventListener("click", function(event) {
@@ -152,31 +152,31 @@ function getApi(){
 }
 
 
-var cityList = document.getElementById("searchList");
+// var cityList = document.getElementById("searchList");
 
 // Render a new li for each search
-function renderList() {
-  cityList.innerHTML = "";
-  cityInput.textContent = searchList.length;
+// function renderList() {
+//   cityList.innerHTML = "";
+//   cityInput.textContent = searchList.length;
 
-  for (var i = 0; i < searchList.length; i++) {
-    var list = searchList[i];
-    var cityList = document.getElementById("searchList");
-    var li = document.createElement("li");
-    li.textContent = list;
-    li.setAttribute("data-index", i)
-    cityList.appendChild(li);
+//   for (var i = 0; i < searchList.length; i++) {
+//     var list = searchList[i];
+//     var cityList = document.getElementById("searchList");
+//     var li = document.createElement("li");
+//     li.textContent = list;
+//     li.setAttribute("data-index", i)
+//     cityList.appendChild(li);
 
-    searchBtn.addEventListener("click", function(event) {
-    event.preventDefault();
-    var cityInput = document.getElementById("cSearch").value;
+//     searchBtn.addEventListener("click", function(event) {
+//     event.preventDefault();
+//     var cityInput = document.getElementById("cSearch").value;
   
   
   
-    });
+//     });
     
-   }
+//    }
 
-}
+// }
 
 searchBtn.addEventListener("click", getApi);
