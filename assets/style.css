@@ -40,3 +40,8 @@
   border: solid 2px;
   border-radius: 2px;
 }
+
+.searchBox {
+  display: block;
+  justify-content: center;
+}

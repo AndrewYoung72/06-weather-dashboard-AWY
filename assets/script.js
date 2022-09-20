@@ -13,16 +13,17 @@ var cityList = document.getElementById("searchList");
 
 localStorage.clear();
 function renderList() {
+  var cityList = document.getElementById("searchList");
   cityList.innerHTML = "";
-  cityInput.textContent = searchList.length;
+  cityList.textContent = searchList.length;
 // Render a new li for each search
   for (var i = 0; i < searchList.length; i++) {
     var list = searchList[i];
     var cityList = document.getElementById("searchList");
-    var li = document.createElement("li");
-    li.textContent = list;
-    li.setAttribute("data-index", i);
-    cityList.appendChild(li);
+    var a = document.createElement("a");
+    a.textContent = list;
+    a.setAttribute("data-index", i);
+    cityList.appendChild(a);
     
 
     searchBtn.addEventListener("click", function(event) {
@@ -40,6 +41,7 @@ function renderList() {
 
 function getApi(){
   var cityInput = document.getElementById("cSearch").value;
+  // var state = document.getElementById("stateId").value;
   var geoCodeUrl = "https://api.openweathermap.org/geo/1.0/direct?q="+cityInput+"&limit=1&appid=483a5f8a85f972bf48f65c53caa33848";
   
 
@@ -150,7 +152,6 @@ function getApi(){
     });
  
 }
-
 
 // var cityList = document.getElementById("searchList");
 
