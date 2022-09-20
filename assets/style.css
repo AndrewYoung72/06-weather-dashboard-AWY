@@ -25,12 +25,18 @@
 
 .listContainer {
   display: flex;
-  color: white;
-  justify-content: left;
-  background-color: lightskyblue;
-  border-style: solid black ;
-  border-width: 2px;
-  border-radius: 2px;
-  width: auto;
+  color: gray;
+  align-items: flex-start;
+  border: solid black 2px;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 15px;
  
+}
+
+#searchList {
+  display: inline-flex;
+  justify-content: center;
+  border: solid 2px;
+  border-radius: 2px;
 }

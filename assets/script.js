@@ -19,10 +19,10 @@ function renderList() {
   for (var i = 0; i < searchList.length; i++) {
     var list = searchList[i];
     var cityList = document.getElementById("searchList");
-    var li = document.createElement("li");
-    li.textContent = list;
-    li.setAttribute("data-index", i);
-    cityList.appendChild(li);
+    var button = document.createElement("button");
+    button.textContent = list;
+    button.setAttribute("data-index", i);
+    cityList.appendChild(button);
     
 
     searchBtn.addEventListener("click", function(event) {
