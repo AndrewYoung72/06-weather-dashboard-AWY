@@ -32,7 +32,10 @@ main {
   grid-row: 2/4;
 }
 
-div {
+section {
   grid-column: 1/13;
-  
+}
+
+footer {
+  grid-column: 1/13;
 }
