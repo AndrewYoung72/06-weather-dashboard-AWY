@@ -1,9 +1,11 @@
-const searchInput = document.querySelectorAll(".input").value;
-const city = document.getElementById("city").value;
-const state = document.getElementById("state").value;
-
-document.querySelector(".input").addEventListener("submit", function(event) {
+const city = document.getElementById("city");
+const state = document.getElementById("state");
+document.querySelector("form.input").addEventListener("submit", function(event) {
   event.preventDefault();
-  console.log(searchInput);
+  const insert = document.getElementById("footer");
+  const div = document.createElement('div');
+  div.textContent = city.value + state.value;
+  insert.appendChild(div);
+  console.log(city.value, state.value);
 })
 
