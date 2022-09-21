@@ -10,11 +10,11 @@
   <body>
     <div id="content">
       <header>Header!</header>
-      <form id="input">
-        <input id="city" type="text" placeholder="City..." />
-        <input id="state" type="text" placeholder="State..." />
+      <form class="input" method="get">
+        <input id="city" type="text" name="city" placeholder="City..." />
+        <input id="state" type="text" name="state" placeholder="State..." />
         <div id="btn">
-          <button >Search</button>
+          <button id="searchBtn" type="submit">Search</button>
         </div> 
       </form>
       <main id="forecast">
