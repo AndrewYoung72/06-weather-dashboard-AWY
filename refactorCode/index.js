@@ -7,7 +7,10 @@ document.querySelector("form.input").addEventListener("submit", function(event) 
   div.textContent = city.value +", "+ state.value;
   div.classList.add("new");
   insert.appendChild(div);
+  city.value = "";
+  state.value = "";
   console.log(city.value, state.value);
+  
 })
 
 

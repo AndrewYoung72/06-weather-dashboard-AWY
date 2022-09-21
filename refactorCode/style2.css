@@ -19,6 +19,9 @@
 }
 .new {
   border: solid pink 2px;
+  color: antiquewhite;
+  margin: 5px;
+  padding: 5px;
 }
 
 header {
