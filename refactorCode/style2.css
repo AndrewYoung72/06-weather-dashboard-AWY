@@ -17,6 +17,9 @@
   display: flex;
   justify-content: center;
 }
+.new {
+  border: solid pink 2px;
+}
 
 header {
   grid-column: 1/13;
