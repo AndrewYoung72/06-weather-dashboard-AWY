@@ -10,7 +10,7 @@ document
     div.textContent = city.value + ", " + state.value;
     div.classList.add("new");
     insert.appendChild(div);
-    cityList.push(city.value + "," + state.value);
+    cityList.push(city.value);
     console.log(cityList);
     city.value = "";
     state.value = "";
@@ -42,10 +42,9 @@ document
 
 function getApi() {
   const city = document.getElementById("city").value;
-  const state = document.getElementById("state").value;
   const geoCodeUrl =
     "https://api.openweathermap.org/geo/1.0/direct?q=" +
-    city + "," +state+
+    city +
     "&limit=1&appid=483a5f8a85f972bf48f65c53caa33848";
     fetch(geoCodeUrl)
       .then(function (response) {
@@ -66,6 +65,25 @@ function getApi() {
         })
         .then(function (weatherData) {
           console.log(weatherData);
+          console.log(data[0].name);
+          console.log(weatherData.current.temp);
+          console.log(weatherData.current.wind_speed);
+          console.log(weatherData.current.humidity,"%");
+          console.log(weatherData.current.uvi);
+          const nameEl = document.getElementById("cityName");
+          const tempEl = document.getElementById("temp");
+          const windEl = document.getElementById("wind");
+          const humidEl = document.getElementById("humid");
+          const uviEl = document.getElementById("uvI");
+
+          // nameEl.textContent = data[0].name;
+          // tempEl.textContent = "Temp: " + weatherData.current.temp;
+          // windEl.textContent = "Wind: " + weatherData.current.wind_speed;
+          // humidEl.textContent = "Humidity: " + weatherData.current.humidity;
+          // uviEl.textContent = "UV Index: " + weatherData.current.uvi;
+              
         })
+        // cityList.push(data[0].name);
+        localStorage.setItem("cityList", JSON.stringify(cityList));
       })
 }
